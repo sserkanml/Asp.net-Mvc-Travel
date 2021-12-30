@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Travel.Models.Classlar.Blog>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/adminLayout.cshtml";
+}
+<style>
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+</style>
+
+<h2>Blog Listesi</h2>
+<table id="customers">
+    <tr>
+        <th>Id</th>
+        <th>Baslik</th>
+        <th>Sil</th>
+        <th>Guncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var blog in Model)
+    {
+        <tr>
+            <td>@blog.Id</td>
+            <td>@blog.Baslik</td>
+            <td><a href="/admin/BlogSil/@blog.Id">Sil</a></td>
+            <td><a href="/admin/BlogGetir/@blog.Id">Güncelle</a></td>
+            <td><a href="/home/blogdetay/@blog.Id">Detaylar</a></td>
+
+        </tr>
+    }
+
+</table>
+<a href="/admin/YeniBlog" class="btn btn-primary " style="margin:10px">Yeni Blog</a>

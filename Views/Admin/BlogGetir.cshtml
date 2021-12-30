@@ -1,0 +1,21 @@
+﻿@model Travel.Models.Classlar.Blog
+@{
+    ViewBag.Title = "BlogGetir";
+    Layout = "~/Views/Shared/adminLayout.cshtml";
+}
+
+<h2>Blog Guncelleme Sayfası</h2>
+
+@using (Html.BeginForm("BlogGuncelle", "admin", FormMethod.Post))
+{
+@Html.LabelFor(x => x.Id)
+@Html.TextBoxFor(x => x.Id, new { @class = "form-control" })
+<br />
+@Html.LabelFor(x => x.Baslik)
+@Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
+<br />
+@Html.LabelFor(x => x.Aciklama)
+@Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control" })
+<br />
+<button class="btn btn-primary" type="submit">Blog Ekle</button>
+}
